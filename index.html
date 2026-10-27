@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Figtree:wght@400;500;600;700&display=swap">
-<link rel="icon" href="/foto-dr.jpg">
+<link rel="icon" href="/icono.png">
 <style>
 /* Layout: una sola columna editorial; retrato y cifras de la valoración arriba, bandas de color alternas para cada tema */
 :root{
@@ -38,12 +38,14 @@
   --bg:#0f1820; --surface:#16222d; --band:#121e28; --ink:#e7edf2; --muted:#a3b1bd;
   --navy:#1d3a57; --sand:#d2b48c; --sand-ink:#d2b48c; --sand-soft:#2a2620; --line:#263644; --wa:#1c8550; --on-navy:#f3f6f8; color-scheme:dark}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px));-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .btn,.wa-float,.menu-btn,.faq summary{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
 a{color:inherit}
-a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--sand);outline-offset:3px;border-radius:4px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--sand-ink);outline-offset:3px;border-radius:4px}
+.val :focus-visible,.safe :focus-visible{outline-color:var(--sand)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .wrap{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
 h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.12;letter-spacing:-.015em;text-wrap:balance;margin:0;font-optical-sizing:auto}
 h2{font-size:clamp(1.8rem,3.4vw,2.5rem)}
@@ -51,7 +53,7 @@ h3{font-size:1.35rem}
 p{margin:0}
 .eyebrow{font-size:.95rem;font-weight:600;letter-spacing:0;color:var(--sand-ink)}
 .lead{color:var(--muted);max-width:62ch}
-section{padding-block:72px;scroll-margin-top:64px}
+section{padding-block:72px}
 .band{background:var(--band)}
 .sec-head{display:grid;gap:12px;margin-bottom:36px}
 
@@ -174,7 +176,7 @@ footer{border-top:1px solid var(--line);padding-block:36px 96px;font-size:.88rem
 footer .wrap{display:grid;gap:10px}
 footer .legal-links{display:flex;flex-wrap:wrap;align-items:center;gap:0 18px}@media (max-width:520px){footer .copy{flex-basis:100%}}
 footer a,.place-card a{display:inline-block;padding-block:12px}
-.skip{position:absolute;left:12px;top:-60px;z-index:50;background:var(--navy);color:#fff;padding:12px 16px;border-radius:8px;text-decoration:none;font-weight:600}.skip:focus{top:12px}
+.skip{position:absolute;left:12px;top:-60px;z-index:50;background:var(--navy);color:#fff;padding:12px 16px;border-radius:8px;text-decoration:none;font-weight:600}.skip:focus{top:12px}main:focus{outline:0}
 footer .disclaimer{max-width:80ch}
 
 /* movimiento al hacer scroll */
@@ -211,16 +213,18 @@ footer .disclaimer{max-width:80ch}
 @media (max-width:560px){.safe-grid{grid-template-columns:1fr}}
 .wa-float{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:20;width:58px;height:58px;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;box-shadow:0 10px 28px rgba(0,0,0,.25)}
 .wa-float svg{width:30px;height:30px}
-.reels{display:grid;grid-auto-flow:column;grid-auto-columns:min(330px,82vw);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;-webkit-overflow-scrolling:touch}
+.reels{display:grid;grid-auto-flow:column;grid-auto-columns:min(330px,82vw);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;padding-bottom:10px;-webkit-overflow-scrolling:touch}
 .reel{scroll-snap-align:start}
 .reel{margin:0;display:flex;flex-direction:column;gap:10px}
 .reel iframe{width:100%;min-width:0;height:580px;border:1px solid var(--line,rgba(0,0,0,.1));border-radius:16px;background:var(--surface,#fff);display:block}
-.reel figcaption{font-size:.95rem;color:var(--muted,inherit);line-height:1.4}.reel-play{all:unset;box-sizing:border-box;cursor:pointer;height:580px;border-radius:16px;padding:28px 24px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;color:#fff;background:radial-gradient(120% 70% at 100% 0%,rgba(184,148,106,.35),transparent 60%),var(--navy);transition:transform .16s var(--ease-out);touch-action:manipulation;-webkit-tap-highlight-color:transparent}.reel-play:active{transform:scale(.98)}.reel-play:focus-visible{outline:3px solid var(--sand);outline-offset:3px}.rp-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.reel-play::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,34,.85),rgba(10,22,34,0) 38%)}.rp-k,.rp-s{position:relative;z-index:1}.rp-k{font-size:.95rem;font-weight:600;color:var(--sand)}.rp-s{font-size:.9rem;color:#e3e9ee}@media (max-width:520px){.reel-play,.reel iframe{height:520px}}
+.reel figcaption{font-size:.95rem;color:var(--muted,inherit);line-height:1.4}.reel-play{all:unset;box-sizing:border-box;cursor:pointer;height:580px;border-radius:16px;padding:28px 24px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;color:#fff;background:radial-gradient(120% 70% at 100% 0%,rgba(184,148,106,.35),transparent 60%),var(--navy);transition:transform .16s var(--ease-out);touch-action:manipulation;-webkit-tap-highlight-color:transparent}.reel-play:active{transform:scale(.98)}.reel-play:focus-visible{outline:3px solid var(--sand-ink);outline-offset:3px}.rp-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.reel-play::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,34,.85),rgba(10,22,34,0) 38%)}.rp-k,.rp-s{position:relative;z-index:1}.rp-k{font-size:.95rem;font-weight:600;color:var(--sand)}.rp-s{font-size:.9rem;color:#e3e9ee}@media (max-width:520px){.reel-play,.reel iframe{height:520px}}
 .reels-more{margin-top:28px;text-align:center}
+@media (hover:hover) and (pointer:fine){.rp-img{transition:transform .3s var(--ease-out)}.reel-play:hover .rp-img{transform:scale(1.03)}}
+@media (prefers-reduced-motion:reduce){.rp-img{transition:none}.reel-play:hover .rp-img{transform:none}}
 .wa-float{transition:transform .16s var(--ease-out);-webkit-tap-highlight-color:transparent;width:auto;height:54px;padding:0 20px 0 16px;border-radius:999px;display:flex;align-items:center;gap:8px;font-weight:600;font-size:1rem;text-decoration:none}
 .wa-float svg{width:26px;height:26px}
 .wa-ready .wa-float{transition:transform .2s var(--ease-out),opacity .2s var(--ease-out),box-shadow .2s ease}
-.wa-ready .wa-float:not(.show){transform:translateY(calc(100% + 28px));opacity:0;pointer-events:none}
+.wa-ready .wa-float:not(.show){transform:translateY(calc(100% + 28px));opacity:0;pointer-events:none;visibility:hidden;transition:transform .2s var(--ease-out),opacity .2s var(--ease-out),visibility 0s linear .2s}
 .wa-ready .wa-float.show:active{transform:scale(.97);transition-duration:.1s}
 @media (min-width:761px){.nav nav a{position:relative}.nav nav a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;border-radius:2px;background:var(--sand);transform:scaleX(0);transition:transform .2s var(--ease-out)}.nav nav a.current{color:var(--ink)}.nav nav a.current::after{transform:scaleX(1)}}
 .reels.has-more{-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 64px),transparent);mask-image:linear-gradient(to right,#000 calc(100% - 64px),transparent)}
@@ -234,7 +238,7 @@ footer .disclaimer{max-width:80ch}
 </style>
 </head>
 <body>
-<a class="skip" href="#valoracion">Saltar al contenido</a>
+<a class="skip" href="#inicio">Saltar al contenido</a>
 
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -243,7 +247,7 @@ footer .disclaimer{max-width:80ch}
 
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#inicio">Dr. Fabio Pacheco</a>
+    <a class="brand" href="#inicio" translate="no">Dr. Fabio Pacheco</a>
     <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>Menú</button>
     <nav aria-label="Secciones" id="menu">
       <a href="#valoracion">Valoración</a>
@@ -257,7 +261,7 @@ footer .disclaimer{max-width:80ch}
   </div>
 </header>
 
-<main id="inicio">
+<main id="inicio" tabindex="-1">
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="hero-copy">
@@ -266,7 +270,7 @@ footer .disclaimer{max-width:80ch}
         <p class="lead">Soy el Dr. Fabio Pacheco. Te atiendo personalmente en la valoración, en la cirugía y en los controles del primer año, para que decidas con información clara y sin presiones.</p>
         <p class="creds">Cirujano general · Universidad del Sinú, seccional Cartagena<br>Cirugía laparoscópica y bariátrica</p>
         <div class="hero-ctas">
-          <a class="btn btn-wa" href="https://wa.me/573005532998?text=Hola%2C%20quiero%20agendar%20una%20valoraci%C3%B3n" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Agendar valoración</a>
+          <a class="btn btn-wa" href="https://wa.me/573005532998?text=Hola%2C%20quiero%20agendar%20una%20valoraci%C3%B3n" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Agendar valoración<span class="sr-only"> (se abre en WhatsApp)</span></a>
           <a class="btn btn-line" href="#procedimientos">Ver procedimientos</a>
         </div>
       </div>
@@ -294,13 +298,13 @@ footer .disclaimer{max-width:80ch}
         <p class="lead">Reviso tus antecedentes, te digo si eres candidato a manga gástrica u otro procedimiento, te explico cómo es el acompañamiento y resuelvo tus dudas. La consulta es igual de completa presencial o virtual.</p>
       </div>
       <div class="val-grid">
-        <div class="val-cell"><span class="k">Valor</span><span class="v">$200.000 COP</span><p>Pago anticipado por transferencia, llave Bre-B o tarjeta.</p></div>
-        <div class="val-cell"><span class="k">Presencial</span><span class="v">En el consultorio</span><p>Consultorio 1560, Torre Médica 2, El Tesoro. No necesitas traer nada.</p></div>
+        <div class="val-cell"><span class="k">Valor</span><span class="v">$200.000&nbsp;COP</span><p>Pago anticipado por transferencia, llave <span translate="no">Bre-B</span> o tarjeta.</p></div>
+        <div class="val-cell"><span class="k">Presencial</span><span class="v">En el consultorio</span><p>Consultorio 1560, Torre Médica&nbsp;2, El Tesoro. No necesitas traer nada.</p></div>
         <div class="val-cell"><span class="k">Virtual</span><span class="v">Por videollamada</span><p>Videollamada de WhatsApp. Ten a mano tu peso y estatura.</p></div>
       </div>
       <div class="val-foot">
         <p>Escribe al WhatsApp de citas para ver los horarios disponibles esta semana.</p>
-        <a class="btn btn-wa" href="https://wa.me/573005532998?text=Hola%2C%20quiero%20agendar%20una%20valoraci%C3%B3n" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Agendar valoración</a>
+        <a class="btn btn-wa" href="https://wa.me/573005532998?text=Hola%2C%20quiero%20agendar%20una%20valoraci%C3%B3n" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Agendar valoración<span class="sr-only"> (se abre en WhatsApp)</span></a>
       </div>
     </div>
   </section>
@@ -326,7 +330,7 @@ footer .disclaimer{max-width:80ch}
         <article>
           <div class="proc-media"><video src="media/balon.mp4" poster="media/balon.webp" autoplay muted loop playsinline preload="metadata" aria-label="El balón Allurion lleno, en mi mano"></video></div>
           <span class="tag">Sin cirugía ni anestesia</span>
-          <h3>Balón Allurion</h3>
+          <h3>Balón <span translate="no">Allurion</span></h3>
           <p>Se traga como una cápsula y se llena dentro del estómago en unos 15 minutos, de forma ambulatoria. Permanece cerca de 4 meses y se expulsa solo.</p>
         </article>
       </div>
@@ -358,12 +362,12 @@ footer .disclaimer{max-width:80ch}
         <p class="lead">Una paciente cuenta cómo vivió su proceso, y en videos cortos te explico lo que más me preguntan en consulta.</p>
       </div>
       <div class="reels">
-        <figure class="reel"><button class="reel-play" type="button" data-src="https://www.instagram.com/reel/DdJy0R-RtQz/embed/" aria-label="Ver video: Riquelia, menos de 24 horas después de su manga gástrica"><img class="rp-img" src="reels/DdJy0R-RtQz.webp" alt="" width="300" height="533" loading="lazy"><span class="rp-k">Testimonio</span><span class="rp-s">Toca para ver el video</span></button><figcaption>Riquelia, menos de 24 horas después de su manga gástrica</figcaption></figure>
-        <figure class="reel"><button class="reel-play" type="button" data-src="https://www.instagram.com/reel/DYPxClBxmNX/embed/" aria-label="Ver video: Lo que sí y lo que no es la cirugía bariátrica"><img class="rp-img" src="reels/DYPxClBxmNX.webp" alt="" width="300" height="533" loading="lazy"><span class="rp-k">Te explico</span><span class="rp-s">Toca para ver el video</span></button><figcaption>Lo que sí y lo que no es la cirugía bariátrica</figcaption></figure>
-        <figure class="reel"><button class="reel-play" type="button" data-src="https://www.instagram.com/reel/DZZEenisf6p/embed/" aria-label="Ver video: Balón Allurion, una opción sin cirugía"><img class="rp-img" src="reels/DZZEenisf6p.webp" alt="" width="300" height="533" loading="lazy"><span class="rp-k">Te explico</span><span class="rp-s">Toca para ver el video</span></button><figcaption>Balón Allurion, una opción sin cirugía</figcaption></figure>
-        <figure class="reel"><button class="reel-play" type="button" data-src="https://www.instagram.com/reel/DYGCgLQMh1S/embed/" aria-label="Ver video: Señales de la obesidad que solemos normalizar"><img class="rp-img" src="reels/DYGCgLQMh1S.webp" alt="" width="300" height="533" loading="lazy"><span class="rp-k">Te explico</span><span class="rp-s">Toca para ver el video</span></button><figcaption>Señales de la obesidad que solemos normalizar</figcaption></figure>
+        <figure class="reel"><button class="reel-play" type="button" data-src="https://www.instagram.com/reel/DdJy0R-RtQz/embed/" aria-label="Testimonio: Riquelia, menos de 24 horas después de su manga gástrica. Toca para ver el video"><img class="rp-img" src="reels/DdJy0R-RtQz.webp" alt="" width="300" height="533" loading="lazy"><span class="rp-k">Testimonio</span><span class="rp-s">Toca para ver el video</span></button><figcaption>Riquelia, menos de 24 horas después de su manga gástrica</figcaption></figure>
+        <figure class="reel"><button class="reel-play" type="button" data-src="https://www.instagram.com/reel/DYPxClBxmNX/embed/" aria-label="Te explico: Lo que sí y lo que no es la cirugía bariátrica. Toca para ver el video"><img class="rp-img" src="reels/DYPxClBxmNX.webp" alt="" width="300" height="533" loading="lazy"><span class="rp-k">Te explico</span><span class="rp-s">Toca para ver el video</span></button><figcaption>Lo que sí y lo que no es la cirugía bariátrica</figcaption></figure>
+        <figure class="reel"><button class="reel-play" type="button" data-src="https://www.instagram.com/reel/DZZEenisf6p/embed/" aria-label="Te explico: Balón Allurion, una opción sin cirugía. Toca para ver el video"><img class="rp-img" src="reels/DZZEenisf6p.webp" alt="" width="300" height="533" loading="lazy"><span class="rp-k">Te explico</span><span class="rp-s">Toca para ver el video</span></button><figcaption>Balón Allurion, una opción sin cirugía</figcaption></figure>
+        <figure class="reel"><button class="reel-play" type="button" data-src="https://www.instagram.com/reel/DYGCgLQMh1S/embed/" aria-label="Te explico: Señales de la obesidad que solemos normalizar. Toca para ver el video"><img class="rp-img" src="reels/DYGCgLQMh1S.webp" alt="" width="300" height="533" loading="lazy"><span class="rp-k">Te explico</span><span class="rp-s">Toca para ver el video</span></button><figcaption>Señales de la obesidad que solemos normalizar</figcaption></figure>
       </div>
-      <p class="reels-more"><a class="btn btn-line" href="https://www.instagram.com/drfabiopache/" target="_blank" rel="noopener">Ver más en Instagram</a></p>
+      <p class="reels-more"><a class="btn btn-line" href="https://www.instagram.com/drfabiopache/" target="_blank" rel="noopener">Ver más en Instagram<span class="sr-only"> (se abre en otra pestaña)</span></a></p>
     </div>
   </section>
 
@@ -396,8 +400,8 @@ footer .disclaimer{max-width:80ch}
           <div><dt>2. Exámenes previos</dt><dd>En tu ciudad, 2 a 3 semanas antes</dd></div>
           <div><dt>3. Llegas a Medellín</dt><dd>3 días antes de la cirugía</dd></div>
           <div><dt>4. Después de la cirugía</dt><dd>Te quedas al menos 6 días</dd></div>
-          <div><dt>Si vienes del exterior</dt><dd>14 días en total en Medellín</dd></div>
           <div><dt>5. Controles</dt><dd>Virtuales, desde tu casa</dd></div>
+          <div><dt>Si vienes del exterior</dt><dd>14 días en total en Medellín</dd></div>
         </dl>
       </div>
     </div>
@@ -414,24 +418,24 @@ footer .disclaimer{max-width:80ch}
         <details><summary>¿Atienden a menores de edad?</summary><p>Sí. La clínica pide un protocolo adicional que te explico en consulta, y el menor siempre debe venir acompañado.</p></details>
         <details><summary>¿Qué pasa si no puedo asistir a la valoración?</summary><p>Puedes reagendarla. Si prefieres la devolución, se reintegra el 75% del valor en 8 días hábiles.</p></details>
       </div>
-      <p class="faq-more">¿Tienes otra pregunta? <a class="btn btn-wa" href="https://wa.me/573005532998?text=Hola%2C%20tengo%20una%20pregunta" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Escribe al WhatsApp de citas</a></p>
+      <p class="faq-more">¿Tienes otra pregunta? <a class="btn btn-wa" href="https://wa.me/573005532998?text=Hola%2C%20tengo%20una%20pregunta" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Escribe al WhatsApp de citas<span class="sr-only"> (se abre en WhatsApp)</span></a></p>
     </div>
   </section>
 
   <section id="ubicacion">
     <div class="wrap place">
       <div>
-        <address>Parque Comercial El Tesoro<br>Torre Médica 2, consultorio 1560<br>Medellín, Colombia</address>
-        <p class="lead">El centro comercial da 2 horas de parqueadero gratis. Te recomiendo llegar 15 minutos antes de tu cita.</p>
+        <address>Parque Comercial El Tesoro<br>Torre Médica&nbsp;2, consultorio 1560<br>Medellín, Colombia</address>
+        <p class="lead">El centro comercial da 2 horas de parqueadero gratis. Te recomiendo llegar 15&nbsp;minutos antes de tu cita.</p>
         <div class="place-actions">
-          <a class="btn btn-line" href="https://share.google/zS1jfkKCrzwrsRhui" target="_blank" rel="noopener">Abrir en Google Maps</a>
-          <a class="btn btn-wa" href="https://wa.me/573005532998?text=Hola%2C%20quiero%20agendar%20una%20valoraci%C3%B3n" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Agendar valoración</a>
+          <a class="btn btn-line" href="https://share.google/zS1jfkKCrzwrsRhui" target="_blank" rel="noopener">Abrir en Google Maps<span class="sr-only"> (se abre en otra pestaña)</span></a>
+          <a class="btn btn-wa" href="https://wa.me/573005532998?text=Hola%2C%20quiero%20agendar%20una%20valoraci%C3%B3n" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Agendar valoración<span class="sr-only"> (se abre en WhatsApp)</span></a>
         </div>
       </div>
       <div class="place-card">
         <p class="eyebrow">Sígueme</p>
         <p>Contenido educativo sobre obesidad y cirugía bariátrica.</p>
-        <p><a href="https://www.instagram.com/drfabiopache/" target="_blank" rel="noopener">Instagram @drfabiopache</a><br><a href="https://www.tiktok.com/@drfabiopache" target="_blank" rel="noopener">TikTok @drfabiopache</a></p>
+        <p><a href="https://www.instagram.com/drfabiopache/" target="_blank" rel="noopener"><span translate="no">Instagram @drfabiopache</span><span class="sr-only"> (se abre en otra pestaña)</span></a><br><a href="https://www.tiktok.com/@drfabiopache" target="_blank" rel="noopener"><span translate="no">TikTok @drfabiopache</span><span class="sr-only"> (se abre en otra pestaña)</span></a></p>
       </div>
     </div>
   </section>
@@ -440,7 +444,7 @@ footer .disclaimer{max-width:80ch}
 <footer>
   <div class="wrap">
     <p class="disclaimer">La información de este sitio es educativa y no reemplaza una consulta médica. Los resultados varían en cada paciente.</p>
-    <p>Fabio Enrique Pacheco Londoño · Consultorio: El Tesoro, Torre Médica 2, consultorio 1560, Medellín · WhatsApp de citas: +57 300 553 2998 · <a href="mailto:feplfeplfepl@gmail.com">feplfeplfepl@gmail.com</a></p>
+    <p>Fabio Enrique Pacheco Londoño · Consultorio: El Tesoro, Torre Médica&nbsp;2, consultorio 1560, Medellín · WhatsApp de citas: +57 300 553 2998 · <a href="mailto:feplfeplfepl@gmail.com">feplfeplfepl@gmail.com</a></p>
     <p class="legal-links"><span class="copy">© 2026 Dr. Fabio Pacheco</span><a href="/privacidad/">Política de privacidad</a><a href="/terminos/">Términos de uso</a></p>
   </div>
 </footer>
@@ -506,7 +510,7 @@ document.addEventListener("DOMContentLoaded",function(){
     addEventListener("scroll",function(){if(!tk){tk=true;requestAnimationFrame(function(){tk=false;spy()})}},{passive:true});
     addEventListener("resize",spy);spy();
   }
-  document.querySelectorAll(".reel-play").forEach(function(b){b.addEventListener("click",function(){var f=document.createElement("iframe");f.src=b.dataset.src;f.title=b.getAttribute("aria-label");f.setAttribute("scrolling","no");f.setAttribute("allowtransparency","true");root.classList.add("ifr-js");var done=function(){f.classList.add("loaded")};f.addEventListener("load",done);setTimeout(done,6000);b.replaceWith(f)})});
+  document.querySelectorAll(".reel-play").forEach(function(b){b.addEventListener("click",function(){var f=document.createElement("iframe");f.src=b.dataset.src;var fc=b.parentNode.querySelector("figcaption");f.title="Video: "+(fc?fc.textContent:"Instagram");f.setAttribute("scrolling","no");f.setAttribute("allowtransparency","true");root.classList.add("ifr-js");var done=function(){f.classList.add("loaded")};f.addEventListener("load",done);setTimeout(done,6000);b.replaceWith(f);f.focus()})});
   var rl=document.querySelector(".reels");
   if(rl){var upd=function(){rl.classList.toggle("has-more",rl.scrollLeft+rl.clientWidth<rl.scrollWidth-8)};rl.addEventListener("scroll",upd,{passive:true});window.addEventListener("resize",upd);upd();}
 });
@@ -517,8 +521,8 @@ document.addEventListener("touchstart",function(){},{passive:true});
 function set(o){m.classList.toggle("open",o);b.setAttribute("aria-expanded",o?"true":"false")}
 b.addEventListener("click",function(){set(!m.classList.contains("open"))});
 m.addEventListener("click",function(e){if(e.target.closest("a"))set(false)});
-document.addEventListener("keydown",function(e){if(e.key==="Escape")set(false)});})();
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&m.classList.contains("open")){set(false);b.focus()}});})();
 </script>
-<a class="wa-float" href="https://wa.me/573005532998?text=Hola%2C%20quiero%20agendar%20una%20valoraci%C3%B3n" target="_blank" rel="noopener" aria-label="Agendar valoración por WhatsApp"><svg aria-hidden="true"><use href="#wa"/></svg>Agendar valoración</a>
+<a class="wa-float" href="https://wa.me/573005532998?text=Hola%2C%20quiero%20agendar%20una%20valoraci%C3%B3n" target="_blank" rel="noopener" aria-label="Agendar valoración por WhatsApp (se abre en WhatsApp)"><svg aria-hidden="true"><use href="#wa"/></svg>Agendar valoración</a>
 </body>
 </html>
