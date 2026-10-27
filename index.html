@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f8f7">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f1820">
 <title>Dr. Fabio Pacheco · Cirugía Bariátrica</title>
 <meta name="description" content="Dr. Fabio Pacheco, cirujano bariátrico en Medellín. Manga gástrica, bypass gástrico y balón Allurion. Agenda tu valoración presencial o virtual por WhatsApp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +27,8 @@
   --bg:#0f1820; --surface:#16222d; --band:#121e28; --ink:#e7edf2; --muted:#a3b1bd;
   --navy:#1d3a57; --sand:#d2b48c; --sand-ink:#d2b48c; --sand-soft:#2a2620; --line:#263644; --wa:#2fb06c; --on-navy:#f3f6f8; color-scheme:dark}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+.btn,.wa-float,.menu-btn,.faq summary{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
 a{color:inherit}
@@ -445,7 +448,7 @@ footer .disclaimer{max-width:80ch}
   var ticking=false;
   function frame(){
     ticking=false;
-    var y=window.scrollY||0,vh=window.innerHeight;
+    var y=window.scrollY||0,vh=document.documentElement.clientHeight;
     if(img){var p=Math.min(y/vh,1);img.style.transform="translateY("+(p*40)+"px) scale("+(1+p*0.06)+")"}
   }
   window.addEventListener("scroll",function(){if(!ticking){ticking=true;requestAnimationFrame(frame)}},{passive:true});
