@@ -49,7 +49,7 @@ h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.12;letter-spac
 h2{font-size:clamp(1.8rem,3.4vw,2.5rem)}
 h3{font-size:1.35rem}
 p{margin:0}
-.eyebrow{font-size:.82rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--sand-ink)}
+.eyebrow{font-size:.95rem;font-weight:600;letter-spacing:0;color:var(--sand-ink)}
 .lead{color:var(--muted);max-width:62ch}
 section{padding-block:72px;scroll-margin-top:64px}
 .band{background:var(--band)}
@@ -109,7 +109,7 @@ header.scrolled{border-bottom-color:color-mix(in srgb,var(--line) 70%,transparen
 .val .lead{color:#c9d5df}
 .val-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.14);border-radius:14px;overflow:hidden;margin-top:8px}
 .val-cell{background:var(--navy);padding:26px 24px;display:grid;gap:6px;align-content:start;min-width:0}
-.val-cell .k{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:#9fb3c4}
+.val-cell .k{font-size:.9rem;font-weight:600;color:#9fb3c4}
 .val-cell .v{font-family:var(--display);font-size:1.9rem;line-height:1.1;font-variant-numeric:tabular-nums}
 .val-cell p{color:#c9d5df;font-size:.95rem}
 .val-foot{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;justify-content:space-between;margin-top:28px}
@@ -121,19 +121,24 @@ header.scrolled{border-bottom-color:color-mix(in srgb,var(--line) 70%,transparen
 .proc article{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;display:grid;gap:12px;align-content:start;min-width:0}
 .proc .tag{justify-self:start;font-size:.78rem;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--sand-soft);color:var(--ink)}
 .proc p{color:var(--muted);font-size:.98rem}
+.proc-media{margin:-26px -26px 4px;aspect-ratio:1/1;overflow:hidden;border-radius:13px 13px 0 0;background:var(--sand-soft)}
+.proc-media video{width:100%;height:100%;object-fit:cover;object-position:50% 62%;display:block}
 .note{margin-top:22px;font-size:.92rem;color:var(--muted)}
 @media (max-width:900px){.proc{grid-template-columns:1fr}}
 
 /* proceso */
-.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:28px;counter-reset:s}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:28px;counter-reset:s}
 .steps li{counter-increment:s;display:grid;gap:8px;align-content:start;border-top:2px solid var(--ink);padding-top:16px;min-width:0}
-.steps li::before{content:"Paso " counter(s);font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--sand-ink)}
+.steps li{padding-top:26px}.steps .when{position:relative;font-size:.95rem;font-weight:600;color:var(--sand-ink)}.steps .when::before{content:"";position:absolute;left:0;top:-31px;width:12px;height:12px;border-radius:50%;background:var(--band);border:2px solid var(--ink);box-sizing:border-box}.steps .key .when::before{background:var(--sand);border-color:var(--sand)}
 .steps p{color:var(--muted);font-size:.96rem}
 @media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.steps{grid-template-columns:1fr}}
+.steps li:last-child{--ext:0px}@media (max-width:900px){.steps li{--ext:0px}}
+
+@media (max-width:820px){.proc p,.safe-item p,.val-cell p,.val-foot p,.steps p,.reel figcaption,.place-card p,.faq details p,.note,.creds{font-size:1rem}}
 
 /* viajeros */
-.travel{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.travel{display:grid;grid-template-columns:1fr;gap:32px;align-items:start}.travel .facts{max-width:720px}
 .facts{display:grid;gap:0;border-top:1px solid var(--line)}
 .facts div{display:flex;justify-content:space-between;gap:16px;padding-block:14px;border-bottom:1px solid var(--line)}
 .facts dt{color:var(--muted)}
@@ -162,12 +167,12 @@ header.scrolled{border-bottom-color:color-mix(in srgb,var(--line) 70%,transparen
 .place-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
 .place-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;display:grid;gap:10px}
 .place-card p{color:var(--muted);font-size:.96rem}
-.place-card p.eyebrow{color:var(--sand-ink);font-size:.82rem}
+.place-card p.eyebrow{color:var(--sand-ink);font-size:.95rem}
 @media (max-width:820px){.place{grid-template-columns:1fr}}
 
 footer{border-top:1px solid var(--line);padding-block:36px 96px;font-size:.88rem;color:var(--muted)}
 footer .wrap{display:grid;gap:10px}
-footer .legal-links{display:flex;flex-wrap:wrap;gap:0 18px}
+footer .legal-links{display:flex;flex-wrap:wrap;align-items:center;gap:0 18px}@media (max-width:520px){footer .copy{flex-basis:100%}}
 footer a,.place-card a{display:inline-block;padding-block:12px}
 .skip{position:absolute;left:12px;top:-60px;z-index:50;background:var(--navy);color:#fff;padding:12px 16px;border-radius:8px;text-decoration:none;font-weight:600}.skip:focus{top:12px}
 footer .disclaimer{max-width:80ch}
@@ -175,9 +180,9 @@ footer .disclaimer{max-width:80ch}
 /* movimiento al hacer scroll */
 .statement{background:var(--bg);padding-block:clamp(96px,16vw,180px)}
 .statement p{font-family:var(--display);font-weight:500;font-size:clamp(2rem,5.4vw,4.2rem);line-height:1.12;letter-spacing:-.01em;text-wrap:balance;max-width:18ch}
-.statement .accent{color:var(--sand-ink);font-style:italic}
+.statement .accent{color:inherit;font-style:normal}
 .js .statement .rv{transform:translateY(24px);transition-duration:.6s}.js .statement .rv.in{transform:none}
-.statement small{display:block;margin-top:28px;font-family:var(--body);font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.yr{list-style:none;margin:48px 0 0;padding:0;display:flex;justify-content:space-between;max-width:760px;position:relative;font-size:.95rem;font-weight:600;color:var(--muted)}.yr::before{content:"";position:absolute;left:6px;right:6px;top:5px;height:2px;background:var(--line)}.yr li{position:relative;padding-top:26px}.yr li::before{content:"";position:absolute;left:0;top:0;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--ink);box-sizing:border-box}.yr li:nth-child(2)::before{background:var(--sand);border-color:var(--sand)}.yr li:last-child{text-align:right}.yr li:last-child::before{left:auto;right:0}@media (max-width:520px){.yr{font-size:.85rem}}
 .js .rv{opacity:0;transform:translateY(16px);transition:opacity .5s var(--ease-out),transform .5s var(--ease-out);transition-delay:var(--d,0s)}
 .js .rv.in{opacity:1;transform:none}
 .portrait img{will-change:transform;transform-origin:50% 60%}
@@ -186,7 +191,7 @@ footer .disclaimer{max-width:80ch}
 .js .hero-copy>*:nth-child(2){animation-delay:.06s}.js .hero-copy>*:nth-child(3){animation-delay:.12s}.js .hero-copy>*:nth-child(4){animation-delay:.18s}.js .hero-copy>*:nth-child(5){animation-delay:.24s}
 .js .portrait{animation:rise .6s .1s var(--ease-out) both}
 .steps li{border-top:0;position:relative}
-.steps li::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--ink);transform-origin:left;transform:scaleX(1);transition:transform .6s var(--ease-out);transition-delay:calc(var(--d,0s) + .1s)}
+.steps li::after{content:"";position:absolute;top:0;left:0;right:var(--ext,-28px);height:2px;background:var(--ink);transform-origin:left;transform:scaleX(1);transition:transform .6s var(--ease-out);transition-delay:calc(var(--d,0s) + .1s)}
 .js .steps li.rv:not(.in)::after{transform:scaleX(0)}
 @media (prefers-reduced-motion:reduce){
 
@@ -198,7 +203,7 @@ footer .disclaimer{max-width:80ch}
 .safe .eyebrow{color:var(--sand)}
 .safe .lead{color:#c9d5df}
 .safe-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.14);border-radius:14px;overflow:hidden}
-.safe-item{background:var(--navy);padding:28px 24px;display:grid;gap:10px;align-content:start;min-width:0}
+.safe-item{background:var(--navy);padding:22px 20px;display:grid;gap:10px;align-content:start;min-width:0}
 .safe-item svg{width:28px;height:28px;color:var(--sand)}
 .safe-item h3{font-size:1.25rem}
 .safe-item p{color:#c9d5df;font-size:.96rem}
@@ -210,7 +215,7 @@ footer .disclaimer{max-width:80ch}
 .reel{scroll-snap-align:start}
 .reel{margin:0;display:flex;flex-direction:column;gap:10px}
 .reel iframe{width:100%;min-width:0;height:580px;border:1px solid var(--line,rgba(0,0,0,.1));border-radius:16px;background:var(--surface,#fff);display:block}
-.reel figcaption{font-size:.95rem;color:var(--muted,inherit);line-height:1.4}
+.reel figcaption{font-size:.95rem;color:var(--muted,inherit);line-height:1.4}.reel-play{all:unset;box-sizing:border-box;cursor:pointer;height:580px;border-radius:16px;padding:28px 24px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;color:#fff;background:radial-gradient(120% 70% at 100% 0%,rgba(184,148,106,.35),transparent 60%),var(--navy);transition:transform .16s var(--ease-out);touch-action:manipulation;-webkit-tap-highlight-color:transparent}.reel-play:active{transform:scale(.98)}.reel-play:focus-visible{outline:3px solid var(--sand);outline-offset:3px}.rp-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.reel-play::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,34,.85),rgba(10,22,34,0) 38%)}.rp-k,.rp-s{position:relative;z-index:1}.rp-k{font-size:.95rem;font-weight:600;color:var(--sand)}.rp-s{font-size:.9rem;color:#e3e9ee}@media (max-width:520px){.reel-play,.reel iframe{height:520px}}
 .reels-more{margin-top:28px;text-align:center}
 .wa-float{transition:transform .16s var(--ease-out);-webkit-tap-highlight-color:transparent;width:auto;height:54px;padding:0 20px 0 16px;border-radius:999px;display:flex;align-items:center;gap:8px;font-weight:600;font-size:1rem;text-decoration:none}
 .wa-float svg{width:26px;height:26px}
@@ -276,7 +281,7 @@ footer .disclaimer{max-width:80ch}
     <div class="statement-inner">
       <div class="wrap">
         <p id="statement-text">Una decisión informada. <span class="accent">Una cirugía segura.</span> Un cirujano que te conoce por tu nombre y te acompaña todo el primer año.</p>
-        <small>Así trabajamos</small>
+        <ol class="yr" aria-label="Tu año de acompañamiento"><li>Valoración</li><li>Cirugía</li><li>5 días</li><li>6 meses</li><li>1 año</li></ol>
       </div>
     </div>
   </section>
@@ -319,6 +324,7 @@ footer .disclaimer{max-width:80ch}
           <p>Deja un estómago más pequeño y conecta un tramo del intestino, de modo que comes menos y absorbes menos. No está indicado para todos los pacientes.</p>
         </article>
         <article>
+          <div class="proc-media"><video src="media/balon.mp4" poster="media/balon.webp" autoplay muted loop playsinline preload="metadata" aria-label="El balón Allurion lleno, en la mano del doctor"></video></div>
           <span class="tag">Sin cirugía ni anestesia</span>
           <h3>Balón Allurion</h3>
           <p>Se traga como una cápsula y se llena dentro del estómago en unos 15 minutos, de forma ambulatoria. Permanece cerca de 4 meses y se expulsa solo.</p>
@@ -331,17 +337,16 @@ footer .disclaimer{max-width:80ch}
   <section class="safe" id="seguridad">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Seguridad</p>
         <h2>Tu seguridad va primero: antes, durante y después</h2>
         <p class="lead">Cada parte del programa está pensada para reducir riesgos y para actuar rápido si algo se sale de lo esperado.</p>
       </div>
       <div class="safe-grid">
-        <div class="safe-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/><path d="M12 7v4M10 9h4"/></svg><h3>Clínica El Rosario</h3><p>Operamos en la sede El Tesoro, una clínica con hospitalización y todos los servicios a la mano.</p></div>
-        <div class="safe-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M8 12h8"/></svg><h3>Cirugía por laparoscopia</h3><p>Se opera por incisiones pequeñas, con menos dolor y una recuperación más rápida que la cirugía abierta.</p></div>
-        <div class="safe-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4h6v3H9z"/><path d="M7 5H5v16h14V5h-2"/><path d="M9 13l2 2 4-4"/></svg><h3>Preparación antes de operar</h3><p>El doctor revisa tus exámenes previos y tienes cita con el anestesiólogo antes de la cirugía.</p></div>
-        <div class="safe-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg><h3>Póliza de complicaciones</h3><p>Tu cirugía incluye una póliza de SURA que cubre riesgos y complicaciones.</p></div>
+        <div class="safe-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/><path d="M12 7v4M10 9h4"/></svg><h3>Clínica El Rosario</h3><p>Operamos en la Clínica El Rosario, sede El Tesoro, acreditada por la Joint Commission International.</p></div>
+        <div class="safe-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M8 12h8"/></svg><h3>Cirugía por laparoscopia</h3><p>Se opera por incisiones pequeñas, con menos dolor y una recuperación rápida.</p></div>
+        <div class="safe-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4h6v3H9z"/><path d="M7 5H5v16h14V5h-2"/><path d="M9 13l2 2 4-4"/></svg><h3>Preparación antes de operar</h3><p>Tu cirujano y el anestesiólogo revisan tus exámenes para confirmar que estás listo para operarte.</p></div>
+        <div class="safe-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg><h3>Póliza de complicaciones</h3><p>Tu cirugía incluye una póliza de complicaciones de SURA, una de las aseguradoras más sólidas del país.</p></div>
         <div class="safe-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12l-1 7H7z"/><path d="M9 10v11M15 10v11"/></svg><h3>Insumos de primera calidad</h3><p>En tu cirugía usamos insumos médicos con la más alta calidad internacional certificada.</p></div>
-        <div class="safe-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg><h3>Seguimiento cercano</h3><p>Controles con el doctor a los 5 días, 6 meses y un año, y respuesta por WhatsApp a tus dudas sobre la cirugía.</p></div>
+        <div class="safe-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg><h3>Seguimiento cercano</h3><p>Te acompaño personalmente durante el primer año: controles a los 5 días, 6 meses y un año, y respuesta por WhatsApp a tus dudas.</p></div>
       </div>
     </div>
   </section>
@@ -349,15 +354,14 @@ footer .disclaimer{max-width:80ch}
   <section id="videos">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Videos</p>
-        <h2>Escúchalo de nuestros pacientes y del doctor</h2>
-        <p class="lead">Una paciente contando su experiencia en la clínica y videos cortos para resolver las dudas más comunes.</p>
+        <h2>Mis pacientes cuentan su experiencia y yo resuelvo tus dudas</h2>
+        <p class="lead">Una paciente cuenta cómo vivió su proceso, y en videos cortos te explico lo que más me preguntan en consulta.</p>
       </div>
       <div class="reels">
-        <figure class="reel"><iframe src="https://www.instagram.com/reel/DdJy0R-RtQz/embed/" title="Riquelia, menos de 24 horas después de su manga gástrica" loading="lazy" scrolling="no" allowtransparency="true"></iframe><figcaption>Riquelia, menos de 24 horas después de su manga gástrica</figcaption></figure>
-        <figure class="reel"><iframe src="https://www.instagram.com/reel/DYPxClBxmNX/embed/" title="Lo que sí y lo que no es la cirugía bariátrica" loading="lazy" scrolling="no" allowtransparency="true"></iframe><figcaption>Lo que sí y lo que no es la cirugía bariátrica</figcaption></figure>
-        <figure class="reel"><iframe src="https://www.instagram.com/reel/DZaaYNkOBpL/embed/" title="¿Cuánto estómago se retira en la manga gástrica?" loading="lazy" scrolling="no" allowtransparency="true"></iframe><figcaption>¿Cuánto estómago se retira en la manga gástrica?</figcaption></figure>
-        <figure class="reel"><iframe src="https://www.instagram.com/reel/DYGCgLQMh1S/embed/" title="Señales de la obesidad que solemos normalizar" loading="lazy" scrolling="no" allowtransparency="true"></iframe><figcaption>Señales de la obesidad que solemos normalizar</figcaption></figure>
+        <figure class="reel"><button class="reel-play" type="button" data-src="https://www.instagram.com/reel/DdJy0R-RtQz/embed/" aria-label="Ver video: Riquelia, menos de 24 horas después de su manga gástrica"><img class="rp-img" src="reels/DdJy0R-RtQz.webp" alt="" width="300" height="533" loading="lazy"><span class="rp-k">Testimonio</span><span class="rp-s">Toca para ver el video</span></button><figcaption>Riquelia, menos de 24 horas después de su manga gástrica</figcaption></figure>
+        <figure class="reel"><button class="reel-play" type="button" data-src="https://www.instagram.com/reel/DYPxClBxmNX/embed/" aria-label="Ver video: Lo que sí y lo que no es la cirugía bariátrica"><img class="rp-img" src="reels/DYPxClBxmNX.webp" alt="" width="300" height="533" loading="lazy"><span class="rp-k">El doctor explica</span><span class="rp-s">Toca para ver el video</span></button><figcaption>Lo que sí y lo que no es la cirugía bariátrica</figcaption></figure>
+        <figure class="reel"><button class="reel-play" type="button" data-src="https://www.instagram.com/reel/DZZEenisf6p/embed/" aria-label="Ver video: Balón Allurion, una opción sin cirugía"><img class="rp-img" src="reels/DZZEenisf6p.webp" alt="" width="300" height="533" loading="lazy"><span class="rp-k">El doctor explica</span><span class="rp-s">Toca para ver el video</span></button><figcaption>Balón Allurion, una opción sin cirugía</figcaption></figure>
+        <figure class="reel"><button class="reel-play" type="button" data-src="https://www.instagram.com/reel/DYGCgLQMh1S/embed/" aria-label="Ver video: Señales de la obesidad que solemos normalizar"><img class="rp-img" src="reels/DYGCgLQMh1S.webp" alt="" width="300" height="533" loading="lazy"><span class="rp-k">El doctor explica</span><span class="rp-s">Toca para ver el video</span></button><figcaption>Señales de la obesidad que solemos normalizar</figcaption></figure>
       </div>
       <p class="reels-more"><a class="btn btn-line" href="https://www.instagram.com/drfabiopache/" target="_blank" rel="noopener">Ver más en Instagram</a></p>
     </div>
@@ -370,10 +374,11 @@ footer .disclaimer{max-width:80ch}
         <h2>Del primer mensaje al control del año</h2>
       </div>
       <ol class="steps">
-        <li><h3>Valoración</h3><p>Presencial o virtual, directamente con el doctor.</p></li>
-        <li><h3>Exámenes y fecha</h3><p>Si decides operarte, eliges la fecha y te haces los exámenes previos. Suelen pasar al menos dos semanas.</p></li>
-        <li><h3>Cirugía</h3><p>En la Clínica El Rosario, sede El Tesoro, con una noche de hospitalización.</p></li>
-        <li><h3>Acompañamiento</h3><p>Controles con el doctor y con un médico deportólogo especialista en nutrición durante el primer año.</p></li>
+        <li><span class="when">Primer paso</span><h3>Valoración</h3><p>Presencial o virtual, directamente con el doctor.</p></li>
+        <li><span class="when">Semanas antes</span><h3>Exámenes y fecha</h3><p>Si decides operarte, eliges la fecha y te haces los exámenes previos. Suelen pasar al menos dos semanas.</p></li>
+        <li><span class="when">Antes de operar</span><h3>Dieta preoperatoria</h3><p>Antes de la cirugía sigues una dieta guiada que prepara tu cuerpo y hace la operación más segura. Su duración depende de tu caso.</p></li>
+        <li class="key"><span class="when">Día de la cirugía</span><h3>Cirugía</h3><p>En la Clínica El Rosario, sede El Tesoro, con una noche de hospitalización.</p></li>
+        <li><span class="when">5 días, 6 meses y 1 año</span><h3>Acompañamiento</h3><p>Controles con el doctor a los 5 días, 6 meses y un año, y con un médico deportólogo especialista en nutrición durante el primer año.</p></li>
       </ol>
     </div>
   </section>
@@ -383,14 +388,16 @@ footer .disclaimer{max-width:80ch}
       <div class="sec-head" style="margin-bottom:0">
         <p class="eyebrow">Pacientes de otras ciudades y países</p>
         <h2>Empieza desde tu casa</h2>
-        <p class="lead">Puedes hacer la valoración virtual y los exámenes previos en tu ciudad. Los controles al volver son virtuales.</p>
+        <p class="lead">Haces la valoración y los exámenes en tu ciudad, y solo viajas a Medellín para la cirugía. Así se organiza tu viaje, paso a paso:</p>
       </div>
       <div>
         <dl class="facts">
-          <div><dt>Llegar antes de la cirugía</dt><dd>3 días</dd></div>
-          <div><dt>Quedarte después (Colombia)</dt><dd>6 días o más</dd></div>
-          <div><dt>Estadía total desde el exterior</dt><dd>14 días</dd></div>
-          <div><dt>Exámenes previos</dt><dd>2 a 3 semanas antes</dd></div>
+          <div><dt>1. Valoración</dt><dd>Virtual, desde tu casa</dd></div>
+          <div><dt>2. Exámenes previos</dt><dd>En tu ciudad, 2 a 3 semanas antes</dd></div>
+          <div><dt>3. Llegas a Medellín</dt><dd>3 días antes de la cirugía</dd></div>
+          <div><dt>4. Después de la cirugía</dt><dd>Te quedas al menos 6 días</dd></div>
+          <div><dt>Si vienes del exterior</dt><dd>14 días en total en Medellín</dd></div>
+          <div><dt>5. Controles</dt><dd>Virtuales, desde tu casa</dd></div>
         </dl>
       </div>
     </div>
@@ -398,7 +405,7 @@ footer .disclaimer{max-width:80ch}
 
   <section class="band" id="preguntas">
     <div class="wrap">
-      <div class="sec-head"><p class="eyebrow">Preguntas frecuentes</p><h2>Lo que más nos preguntan</h2></div>
+      <div class="sec-head"><h2>Lo que más nos preguntan</h2></div>
       <div class="faq">
         <details><summary>¿Atienden por EPS o medicina prepagada?</summary><p>No. La atención es particular.</p></details>
         <details><summary>¿Se puede financiar la cirugía?</summary><p>Sí, con un crédito de una entidad financiera con la que tenemos convenio. Te damos los detalles por WhatsApp o en la valoración.</p></details>
@@ -414,7 +421,6 @@ footer .disclaimer{max-width:80ch}
   <section id="ubicacion">
     <div class="wrap place">
       <div>
-        <p class="eyebrow">Ubicación</p>
         <address>Parque Comercial El Tesoro<br>Torre Médica 2, consultorio 1560<br>Medellín, Colombia</address>
         <p class="lead">El centro comercial da 2 horas de parqueadero gratis. Llega 15 minutos antes de tu cita.</p>
         <div class="place-actions">
@@ -435,10 +441,16 @@ footer .disclaimer{max-width:80ch}
   <div class="wrap">
     <p class="disclaimer">La información de este sitio es educativa y no reemplaza una consulta médica. Los resultados varían en cada paciente.</p>
     <p>Fabio Enrique Pacheco Londoño · Consultorio: El Tesoro, Torre Médica 2, consultorio 1560, Medellín · WhatsApp de citas: +57 300 553 2998 · <a href="mailto:feplfeplfepl@gmail.com">feplfeplfepl@gmail.com</a></p>
-    <p class="legal-links">© 2026 Dr. Fabio Pacheco <a href="/privacidad/">Política de privacidad</a><a href="/terminos/">Términos de uso</a></p>
+    <p class="legal-links"><span class="copy">© 2026 Dr. Fabio Pacheco</span><a href="/privacidad/">Política de privacidad</a><a href="/terminos/">Términos de uso</a></p>
   </div>
 </footer>
 
+<script>
+(function(){
+  var v=document.querySelector(".proc-media video");
+  if(v&&window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches){v.removeAttribute("autoplay");v.pause()}
+})();
+</script>
 <script>
 (function(){
   var root=document.documentElement;
@@ -494,8 +506,7 @@ document.addEventListener("DOMContentLoaded",function(){
     addEventListener("scroll",function(){if(!tk){tk=true;requestAnimationFrame(function(){tk=false;spy()})}},{passive:true});
     addEventListener("resize",spy);spy();
   }
-  var fr=document.querySelectorAll(".reel iframe");
-  if(fr.length){root.classList.add("ifr-js");fr.forEach(function(f){var done=function(){f.classList.add("loaded")};f.addEventListener("load",done);setTimeout(done,6000)})}
+  document.querySelectorAll(".reel-play").forEach(function(b){b.addEventListener("click",function(){var f=document.createElement("iframe");f.src=b.dataset.src;f.title=b.getAttribute("aria-label");f.setAttribute("scrolling","no");f.setAttribute("allowtransparency","true");root.classList.add("ifr-js");var done=function(){f.classList.add("loaded")};f.addEventListener("load",done);setTimeout(done,6000);b.replaceWith(f)})});
   var rl=document.querySelector(".reels");
   if(rl){var upd=function(){rl.classList.toggle("has-more",rl.scrollLeft+rl.clientWidth<rl.scrollWidth-8)};rl.addEventListener("scroll",upd,{passive:true});window.addEventListener("resize",upd);upd();}
 });
