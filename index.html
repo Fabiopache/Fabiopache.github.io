@@ -7,6 +7,17 @@
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f1820">
 <title>Dr. Fabio Pacheco · Cirugía Bariátrica</title>
 <meta name="description" content="Dr. Fabio Pacheco, cirujano bariátrico en Medellín. Manga gástrica, bypass gástrico y balón Allurion. Agenda tu valoración presencial o virtual por WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CO">
+<meta property="og:url" content="https://fabiopache.github.io/">
+<meta property="og:title" content="Dr. Fabio Pacheco · Cirujano bariátrico en Medellín">
+<meta property="og:description" content="Manga gástrica, bypass gástrico y balón Allurion. Agenda tu valoración presencial o virtual por WhatsApp.">
+<meta property="og:image" content="https://fabiopache.github.io/foto-dr.jpg">
+<meta property="og:image:width" content="900">
+<meta property="og:image:height" content="1200">
+<meta property="og:image:alt" content="El Dr. Fabio Pacheco en quirófano durante una cirugía por laparoscopia">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Physician", "name": "Dr. Fabio Pacheco", "url": "https://fabiopache.github.io/", "image": "https://fabiopache.github.io/foto-dr.jpg", "medicalSpecialty": "Surgical", "description": "Cirujano bariátrico en Medellín: manga gástrica, bypass gástrico y balón Allurion.", "telephone": "+57 300 553 2998", "address": {"@type": "PostalAddress", "streetAddress": "Parque Comercial El Tesoro, Torre Médica 2, consultorio 1560", "addressLocality": "Medellín", "addressRegion": "Antioquia", "addressCountry": "CO"}, "areaServed": "Colombia", "sameAs": ["https://www.instagram.com/drfabiopache/", "https://www.tiktok.com/@drfabiopache"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Figtree:wght@400;500;600;700&display=swap">
@@ -15,17 +26,17 @@
 /* Layout: una sola columna editorial; retrato y cifras de la valoración arriba, bandas de color alternas para cada tema */
 :root{
   --bg:#f7f8f7; --surface:#ffffff; --band:#ecefee; --ink:#13283d; --muted:#4f5f6e;
-  --navy:#17324d; --sand:#b8946a; --sand-ink:#86643d; --sand-soft:#efe5d8; --line:#d9dfe2; --wa:#1f8f55; --on-navy:#f3f6f8;
+  --navy:#17324d; --sand:#b8946a; --sand-ink:#86643d; --sand-soft:#efe5d8; --line:#d9dfe2; --wa:#1c8550; --on-navy:#f3f6f8;
   --display:"Newsreader",Georgia,"Times New Roman",serif;
   --ease-out:cubic-bezier(0.23,1,0.32,1);
   --body:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#0f1820; --surface:#16222d; --band:#121e28; --ink:#e7edf2; --muted:#a3b1bd;
-  --navy:#1d3a57; --sand:#d2b48c; --sand-ink:#d2b48c; --sand-soft:#2a2620; --line:#263644; --wa:#2fb06c; --on-navy:#f3f6f8; color-scheme:dark}}
+  --navy:#1d3a57; --sand:#d2b48c; --sand-ink:#d2b48c; --sand-soft:#2a2620; --line:#263644; --wa:#1c8550; --on-navy:#f3f6f8; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0f1820; --surface:#16222d; --band:#121e28; --ink:#e7edf2; --muted:#a3b1bd;
-  --navy:#1d3a57; --sand:#d2b48c; --sand-ink:#d2b48c; --sand-soft:#2a2620; --line:#263644; --wa:#2fb06c; --on-navy:#f3f6f8; color-scheme:dark}
+  --navy:#1d3a57; --sand:#d2b48c; --sand-ink:#d2b48c; --sand-soft:#2a2620; --line:#263644; --wa:#1c8550; --on-navy:#f3f6f8; color-scheme:dark}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .btn,.wa-float,.menu-btn,.faq summary{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
@@ -38,7 +49,7 @@ h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.12;letter-spac
 h2{font-size:clamp(1.8rem,3.4vw,2.5rem)}
 h3{font-size:1.35rem}
 p{margin:0}
-.eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--sand-ink)}
+.eyebrow{font-size:.82rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--sand-ink)}
 .lead{color:var(--muted);max-width:62ch}
 section{padding-block:72px;scroll-margin-top:64px}
 .band{background:var(--band)}
@@ -151,12 +162,14 @@ header.scrolled{border-bottom-color:color-mix(in srgb,var(--line) 70%,transparen
 .place-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
 .place-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;display:grid;gap:10px}
 .place-card p{color:var(--muted);font-size:.96rem}
-.place-card p.eyebrow{color:var(--sand-ink);font-size:.78rem}
+.place-card p.eyebrow{color:var(--sand-ink);font-size:.82rem}
 @media (max-width:820px){.place{grid-template-columns:1fr}}
 
 footer{border-top:1px solid var(--line);padding-block:36px 96px;font-size:.88rem;color:var(--muted)}
 footer .wrap{display:grid;gap:10px}
-footer .legal-links{display:flex;flex-wrap:wrap;gap:8px 18px}
+footer .legal-links{display:flex;flex-wrap:wrap;gap:0 18px}
+footer a,.place-card a{display:inline-block;padding-block:12px}
+.skip{position:absolute;left:12px;top:-60px;z-index:50;background:var(--navy);color:#fff;padding:12px 16px;border-radius:8px;text-decoration:none;font-weight:600}.skip:focus{top:12px}
 footer .disclaimer{max-width:80ch}
 
 /* movimiento al hacer scroll */
@@ -216,6 +229,7 @@ footer .disclaimer{max-width:80ch}
 </style>
 </head>
 <body>
+<a class="skip" href="#valoracion">Saltar al contenido</a>
 
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -252,7 +266,7 @@ footer .disclaimer{max-width:80ch}
         </div>
       </div>
       <figure class="portrait">
-        <img src="foto-dr.jpg?v=2" alt="El Dr. Fabio Pacheco en quirófano durante una cirugía por laparoscopia" width="900" height="1200">
+        <img src="foto-dr.jpg?v=2" fetchpriority="high" alt="El Dr. Fabio Pacheco en quirófano durante una cirugía por laparoscopia" width="900" height="1200">
         <figcaption><b>Clínica El Rosario</b>sede El Tesoro, Medellín</figcaption>
       </figure>
     </div>
