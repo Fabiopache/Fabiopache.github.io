@@ -52,8 +52,8 @@ header.scrolled{border-bottom-color:color-mix(in srgb,var(--line) 70%,transparen
 .nav nav{display:flex;gap:22px;flex-wrap:wrap}
 .nav nav a{text-decoration:none;font-size:.95rem;color:var(--muted)}
 .nav nav a{transition:color .15s ease}
-.nav nav a:hover{color:var(--ink)}
-.menu-btn{display:none;align-items:center;gap:8px;background:none;border:1.5px solid var(--line);color:var(--ink);font:600 .95rem var(--body);padding:10px 14px;border-radius:999px;cursor:pointer;min-height:44px}
+@media (hover:hover) and (pointer:fine){.nav nav a:hover{color:var(--ink)}}
+.menu-btn{display:none;align-items:center;gap:8px;background:none;border:1.5px solid var(--line);color:var(--ink);font:600 .95rem var(--body);padding:10px 14px;border-radius:999px;cursor:pointer;min-height:44px;transition:transform .16s var(--ease-out);-webkit-tap-highlight-color:transparent}
 .menu-btn .bars{display:grid;gap:4px}.menu-btn .bars span{display:block;width:18px;height:2px;background:currentColor;border-radius:2px;transition:transform .2s var(--ease-out),opacity .15s ease}
 .menu-btn[aria-expanded="true"] .bars span:nth-child(1){transform:translateY(6px) rotate(45deg)}.menu-btn[aria-expanded="true"] .bars span:nth-child(2){opacity:0}.menu-btn[aria-expanded="true"] .bars span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 .ifr-js .reel iframe{opacity:0;transition:opacity .25s ease}.ifr-js .reel iframe.loaded{opacity:1}
@@ -68,7 +68,9 @@ header.scrolled{border-bottom-color:color-mix(in srgb,var(--line) 70%,transparen
 
 .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:600;text-decoration:none;font-size:1rem;transition:transform .16s var(--ease-out),box-shadow .2s ease;-webkit-tap-highlight-color:transparent}
 @media (hover:hover) and (pointer:fine){.btn:hover{transform:translateY(-1px)}.btn-wa:hover{box-shadow:0 8px 20px color-mix(in srgb,var(--wa) 35%,transparent)}}
+.btn,.wa-float,.menu-btn,.faq summary{touch-action:manipulation}
 .btn:active,.wa-float:active,.menu-btn:active{transform:scale(.97);transition-duration:.1s}
+@media (hover:hover) and (pointer:fine){.wa-ready .wa-float.show:hover{box-shadow:0 14px 32px rgba(0,0,0,.28)}}
 .btn-wa{background:var(--wa);color:#fff}
 .btn-line{border:1.5px solid var(--ink);color:var(--ink)}
 .btn svg{width:20px;height:20px;flex:none}
@@ -196,7 +198,7 @@ footer .disclaimer{max-width:80ch}
 .reels-more{margin-top:28px;text-align:center}
 .wa-float{transition:transform .16s var(--ease-out);-webkit-tap-highlight-color:transparent;width:auto;height:54px;padding:0 20px 0 16px;border-radius:999px;display:flex;align-items:center;gap:8px;font-weight:600;font-size:1rem;text-decoration:none}
 .wa-float svg{width:26px;height:26px}
-.wa-ready .wa-float{transition:transform .2s var(--ease-out),opacity .2s var(--ease-out)}
+.wa-ready .wa-float{transition:transform .2s var(--ease-out),opacity .2s var(--ease-out),box-shadow .2s ease}
 .wa-ready .wa-float:not(.show){transform:translateY(calc(100% + 28px));opacity:0;pointer-events:none}
 .wa-ready .wa-float.show:active{transform:scale(.97);transition-duration:.1s}
 @media (min-width:761px){.nav nav a{position:relative}.nav nav a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;border-radius:2px;background:var(--sand);transform:scaleX(0);transition:transform .2s var(--ease-out)}.nav nav a.current{color:var(--ink)}.nav nav a.current::after{transform:scaleX(1)}}
@@ -482,6 +484,7 @@ document.addEventListener("DOMContentLoaded",function(){
 });
 </script>
 <script>
+document.addEventListener("touchstart",function(){},{passive:true});
 (function(){var b=document.getElementById("menu-btn"),m=document.getElementById("menu");if(!b||!m)return;
 function set(o){m.classList.toggle("open",o);b.setAttribute("aria-expanded",o?"true":"false")}
 b.addEventListener("click",function(){set(!m.classList.contains("open"))});
