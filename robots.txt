@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /pacientes/
+Disallow: /datos-negocio/
